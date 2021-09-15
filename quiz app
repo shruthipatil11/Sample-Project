@@ -1,0 +1,39 @@
+var readlineSync = require('readline-sync');
+
+var score = 0;
+var highestScore = [3,2];
+
+function add(question,rightAnswer){
+var userAnswer = readlineSync.question(question);
+
+if(userAnswer == rightAnswer)
+{
+  score++;
+}
+else {
+  score--;
+}
+}
+
+function checkIfScoreIsHighest(userScore)
+{
+  const arr = highestScore.filter(score =>  userScore >= score);
+
+  if(arr.length > 0)
+    {
+      alert("Congratulations!");
+      alert("Please send the screenshot of the same to me");
+      
+    }
+}
+
+add("where do I live ","yadgir");
+add("where do I work ","TCS");
+add("Do I like programming ","YES");
+
+checkIfScoreIsHighest(score);
+
+
+
+console.log(...highestScore,score);
+
